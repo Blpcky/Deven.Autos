@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deven.Autos - Top 10 Cars from 2000's</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 3em;
+            letter-spacing: -1px;
+        }
+        
+        .car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .car-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .car-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .car-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #e9ecef;
+        }
+        
+        .car-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .car-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 6px 14px;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 6px;
+            z-index: 10;
+        }
+        
+        .car-info {
+            padding: 24px;
+        }
+        
+        .car-rank {
+            color: #999;
+            font-size: 0.85em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .car-name {
+            color: #222;
+            font-size: 1.5em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            
+            .car-list {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top 10 Cars from 2000's</h1>
+        
+        <div class="car-list">
+            <!-- 1 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/1.jpg" alt="Honda S2000" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+1'">
+                    <div class="car-number">1</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #1</div>
+                    <div class="car-name">Honda S2000</div>
+                </div>
+            </div>
+            
+            <!-- 2 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/2.jpg" alt="2000 Integra Type S" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+2'">
+                    <div class="car-number">2</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #2</div>
+                    <div class="car-name">2000 Integra Type S</div>
+                </div>
+            </div>
+            
+            <!-- 3 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/3.jpg" alt="BMW E36" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+3'">
+                    <div class="car-number">3</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #3</div>
+                    <div class="car-name">BMW E36</div>
+                </div>
+            </div>
+            
+            <!-- 4 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/4.jpg" alt="2000 Mustang SVT Cobra" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+4'">
+                    <div class="car-number">4</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #4</div>
+                    <div class="car-name">2000 Mustang SVT Cobra</div>
+                </div>
+            </div>
+            
+            <!-- 5 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/5.jpg" alt="New Miata MX-5" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+5'">
+                    <div class="car-number">5</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #5</div>
+                    <div class="car-name">New Miata MX-5</div>
+                </div>
+            </div>
+            
+            <!-- 6 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/6.jpg" alt="Car 6" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+6'">
+                    <div class="car-number">6</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #6</div>
+                    <div class="car-name">Coming Soon</div>
+                </div>
+            </div>
+            
+            <!-- 7 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/7.jpg" alt="Car 7" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+7'">
+                    <div class="car-number">7</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #7</div>
+                    <div class="car-name">Coming Soon</div>
+                </div>
+            </div>
+            
+            <!-- 8 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/8.jpg" alt="Car 8" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+8'">
+                    <div class="car-number">8</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #8</div>
+                    <div class="car-name">Coming Soon</div>
+                </div>
+            </div>
+            
+            <!-- 9 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/9.jpg" alt="Car 9" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+9'">
+                    <div class="car-number">9</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #9</div>
+                    <div class="car-name">Coming Soon</div>
+                </div>
+            </div>
+            
+            <!-- 10 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/10.jpg" alt="Car 10" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+10'">
+                    <div class="car-number">10</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #10</div>
+                    <div class="car-name">Coming Soon</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
