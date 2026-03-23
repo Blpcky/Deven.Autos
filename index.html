@@ -74,17 +74,21 @@ h3 {
     color: #ccc;
 }
 
+/* IMAGE STYLE */
 .image {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 0.9rem;
     margin-bottom: 12px;
     border-radius: 6px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .about {
@@ -129,90 +133,119 @@ footer {
     </p>
 </section>
 
-<!-- MAIN LIST -->
 <h2>Top 10 Machines</h2>
 
+<!-- 1 -->
 <div class="card">
-    <div class="image">IMAGE: HONDA S2000</div>
+    <div class="image">
+        <img src="images/1.jpg" alt="Honda S2000" onerror="this.src='https://via.placeholder.com/800x450?text=HONDA+S2000'">
+    </div>
     <h3>HONDA S2000</h3>
     <div class="meta">RANK #1 • $42,500</div>
     <div class="desc">9k RPM or you’re not even trying. Trunk is useless, but so are you, so it’s fine.</div>
 </div>
 
+<!-- 2 -->
 <div class="card">
-    <div class="image">IMAGE: INTEGRA TYPE R</div>
+    <div class="image">
+        <img src="images/2.jpg" alt="Integra Type R" onerror="this.src='https://via.placeholder.com/800x450?text=INTEGRA+TYPE+R'">
+    </div>
     <h3>INTEGRA TYPE R</h3>
     <div class="meta">RANK #2 • $34,000</div>
     <div class="desc">Front-wheel drive, zero fluff, stolen three times before you even get plates.</div>
 </div>
 
+<!-- 3 -->
 <div class="card">
-    <div class="image">IMAGE: BMW E46</div>
+    <div class="image">
+        <img src="images/3.jpg" alt="BMW E46" onerror="this.src='https://via.placeholder.com/800x450?text=BMW+E46'">
+    </div>
     <h3>BMW E46</h3>
     <div class="meta">RANK #3 • $33,000</div>
     <div class="desc">RWD, straight-six, permanent low oil light. Worth every warning light on the dash.</div>
 </div>
 
+<!-- 4 -->
 <div class="card">
-    <div class="image">IMAGE: COBRA MUSTANG SVT</div>
+    <div class="image">
+        <img src="images/4.jpg" alt="Cobra Mustang SVT" onerror="this.src='https://via.placeholder.com/800x450?text=MUSTANG+SVT'">
+    </div>
     <h3>COBRA MUSTANG SVT</h3>
     <div class="meta">RANK #4 • $20,000</div>
     <div class="desc">Loud, dumb, and fast. Factory-issued burnouts and speeding tickets.</div>
 </div>
 
+<!-- 5 -->
 <div class="card">
-    <div class="image">IMAGE: MIATA</div>
+    <div class="image">
+        <img src="images/5.jpg" alt="Miata" onerror="this.src='https://via.placeholder.com/800x450?text=MIATA'">
+    </div>
     <h3>MIATA</h3>
     <div class="meta">RANK #5 • $7,000</div>
     <div class="desc">Looks cute, drives like a go-kart that wants you dead in the rain.</div>
 </div>
 
+<!-- 6 -->
 <div class="card">
-    <div class="image">IMAGE: SUBARU WRX</div>
+    <div class="image">
+        <img src="images/6.jpg" alt="Subaru WRX" onerror="this.src='https://via.placeholder.com/800x450?text=WRX'">
+    </div>
     <h3>SUBARU WRX</h3>
     <div class="meta">RANK #6 • $15,000</div>
     <div class="desc">Rally car for kids with poor impulse control. Engine may self-destruct at any moment.</div>
 </div>
 
+<!-- 7 -->
 <div class="card">
-    <div class="image">IMAGE: CORVETTE C5</div>
+    <div class="image">
+        <img src="images/7.jpg" alt="Corvette C5" onerror="this.src='https://via.placeholder.com/800x450?text=C5'">
+    </div>
     <h3>CORVETTE C5</h3>
     <div class="meta">RANK #7 • $20,000</div>
     <div class="desc">Plastic fantastic with V8 rage. Midlife crisis included at no extra charge.</div>
 </div>
 
+<!-- 8 -->
 <div class="card">
-    <div class="image">IMAGE: TOYOTA SUPRA</div>
+    <div class="image">
+        <img src="images/8.jpg" alt="Toyota Supra" onerror="this.src='https://via.placeholder.com/800x450?text=SUPRA'">
+    </div>
     <h3>TOYOTA SUPRA</h3>
     <div class="meta">RANK #8 • $30,000</div>
     <div class="desc">Overpriced legend. Half of them are dyno queens, the other half are in a ditch.</div>
 </div>
 
+<!-- 9 -->
 <div class="card">
-    <div class="image">IMAGE: ACURA RSX TYPE S</div>
+    <div class="image">
+        <img src="images/9.jpg" alt="Acura RSX Type S" onerror="this.src='https://via.placeholder.com/800x450?text=RSX'">
+    </div>
     <h3>ACURA RSX TYPE S</h3>
     <div class="meta">RANK #9 • $12,000</div>
     <div class="desc">Rev it till it screams, then rev it more. Cheap enough to crash twice.</div>
 </div>
 
+<!-- 10 -->
 <div class="card">
-    <div class="image">IMAGE: AUDI TT</div>
+    <div class="image">
+        <img src="images/10.jpg" alt="Audi TT" onerror="this.src='https://via.placeholder.com/800x450?text=TT'">
+    </div>
     <h3>AUDI TT</h3>
     <div class="meta">RANK #10 • $7,000</div>
     <div class="desc">Golf in a tight shirt with turbo lag. Quattro saves your bad decisions.</div>
 </div>
 
-<!-- HONORABLE -->
 <h2>Honorable Mention</h2>
 
 <div class="card">
-    <div class="image">IMAGE: HONDA FIT</div>
+    <div class="image">
+        <img src="images/11.jpg" alt="Honda Fit" onerror="this.src='https://via.placeholder.com/800x450?text=HONDA+FIT'">
+    </div>
     <h3>HONDA FIT</h3>
     <div class="meta">HONORABLE MENTION • $5,000</div>
     <div class="desc">Looks like a toaster, hauls like a van, gets treated like a rental.</div>
 </div>
 
-<!-- ABOUT -->
 <section class="about">
     <h2>About / Links</h2>
     <p>Deven – student, car brain, owner of too many tabs and not enough horsepower.</p>
