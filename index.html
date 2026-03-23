@@ -1,262 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEVEN.AUTOS – Top 10 Machines of the 2000s</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #0b0b0b;
-    color: #eaeaea;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-}
-
-h2 {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #ff3b3b;
-}
-
-h3 {
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-.hero {
-    margin-bottom: 40px;
-}
-
-.hero p {
-    margin-top: 15px;
-    color: #bbb;
-    max-width: 700px;
-}
-
-.card {
-    background: #141414;
-    border: 1px solid #222;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
-.card:hover {
-    border-color: #ff3b3b;
-}
-
-.meta {
-    font-size: 0.85rem;
-    color: #888;
-    margin: 5px 0 10px;
-}
-
-.desc {
-    color: #ccc;
-}
-
-/* IMAGE STYLE */
-.image {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #222;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.about {
-    margin-top: 50px;
-}
-
-.about a {
-    color: #ff3b3b;
-    text-decoration: none;
-}
-
-.about a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    text-align: center;
-    margin-top: 60px;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deven.Autos - Top 10 Cars from 2000's</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #24783c 0%, #33914e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 3em;
+            letter-spacing: -1px;
+        }
+        
+        .car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .car-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .car-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .car-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #e9ecef;
+        }
+        
+        .car-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .car-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 6px 14px;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 6px;
+            z-index: 10;
+        }
+        
+        .car-info {
+            padding: 24px;
+        }
+        
+        .car-rank {
+            color: #999;
+            font-size: 0.85em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .car-name {
+            color: #222;
+            font-size: 1.5em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            
+            .car-list {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-<div class="container">
+    <div class="container">
+        <h1>Top 10 Cars from 2000's</h1>
+        
+        <div class="car-list">
+            <!-- 1 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/1.jpg" alt="Honda S2000" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+1'">
+                    <div class="car-number">$42,500</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #1</div>
+                    <div class="car-name">Honda S2000</div>
+                </div>
+            </div>
+            
+            <!-- 2 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/2.jpg" alt="Integra Type R" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+2'">
+                    <div class="car-number">$34,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #2</div>
+                    <div class="car-name">Integra Type R</div>
+                </div>
+            </div>
+            
+            <!-- 3 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/3.jpg" alt="BMW E46" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+3'">
+                    <div class="car-number">$33,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #3</div>
+                    <div class="car-name">BMW E46</div>
+                </div>
+            </div>
+            
+            <!-- 4 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/4.jpg" alt="Cobra Mustang SVT" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+4'">
+                    <div class="car-number">$20,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #4</div>
+                    <div class="car-name">Cobra Mustang SVT</div>
+                </div>
+            </div>
+            
+            <!-- 5 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/5.jpg" alt="Miata" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+5'">
+                    <div class="car-number">$7,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #5</div>
+                    <div class="car-name">Miata</div>
+                </div>
+            </div>
+            
+            <!-- 6 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/6.jpg" alt="Subaru WRX" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+6'">
+                    <div class="car-number">$15,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #6</div>
+                    <div class="car-name">Subaru WRX</div>
+                </div>
+            </div>
+            
+            <!-- 7 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/7.jpg" alt="Corvette C5" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+7'">
+                    <div class="car-number">$20,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #7</div>
+                    <div class="car-name">Corvette C5</div>
+                </div>
+            </div>
+            
+            <!-- 8 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/8.jpg" alt="Toyota Supra" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+8'">
+                    <div class="car-number">$30,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #8</div>
+                    <div class="car-name">Toyota Supra</div>
+                </div>
+            </div>
+            
+            <!-- 9 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/9.jpg" alt="Acura RSX Type S" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+9'">
+                    <div class="car-number">$12,000</div>
+                </div>
+                <div class="car-info">
+                     <div class="car-rank">Rank #9</div>
+                    <div class="car-name">Acura RSX Type S</div>
+                </div>
+            </div>
+            
+            <!-- 10 -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/10.jpg" alt="Audi TT" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+10'">
+                    <div class="car-number">$7,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Rank #10</div>
+                    <div class="car-name">Audi TT</div>
+                </div>
+            </div>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>DEVEN.AUTOS</h1>
-    <p><strong>Top 10 Machines of the 2000s</strong></p>
-    <p>
-        The 2000s were peak stupid: high-rev Hondas, sketchy Mustangs, and insurance-fraud WRXs.
-        These are the only machines that mattered. No beige appliances. No crossovers.
-        If it doesn’t make noise and bad decisions, it’s not on this list.
-    </p>
-</section>
-
-<h2>Top 10 Machines</h2>
-
-<!-- 1 -->
-<div class="card">
-    <div class="image">
-        <img src="images/1.jpg" alt="Honda S2000" onerror="this.src='https://via.placeholder.com/800x450?text=HONDA+S2000'">
+            <!-- Honorable Mention -->
+            <div class="car-card">
+                <div class="car-image-wrapper">
+                    <img src="images/11.jpg" alt="Honda Fit" class="car-image" onerror="this.src='https://via.placeholder.com/300x250?text=Car+11'">
+                    <div class="car-number">$5,000</div>
+                </div>
+                <div class="car-info">
+                    <div class="car-rank">Honorable Mention</div>
+                    <div class="car-name">Honda Fit</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <h3>HONDA S2000</h3>
-    <div class="meta">RANK #1 • $42,500</div>
-    <div class="desc">9k RPM or you’re not even trying. Trunk is useless, but so are you, so it’s fine.</div>
-</div>
 
-<!-- 2 -->
-<div class="card">
-    <div class="image">
-        <img src="images/2.jpg" alt="Integra Type R" onerror="this.src='https://via.placeholder.com/800x450?text=INTEGRA+TYPE+R'">
-    </div>
-    <h3>INTEGRA TYPE R</h3>
-    <div class="meta">RANK #2 • $34,000</div>
-    <div class="desc">Front-wheel drive, zero fluff, stolen three times before you even get plates.</div>
-</div>
-
-<!-- 3 -->
-<div class="card">
-    <div class="image">
-        <img src="images/3.jpg" alt="BMW E46" onerror="this.src='https://via.placeholder.com/800x450?text=BMW+E46'">
-    </div>
-    <h3>BMW E46</h3>
-    <div class="meta">RANK #3 • $33,000</div>
-    <div class="desc">RWD, straight-six, permanent low oil light. Worth every warning light on the dash.</div>
-</div>
-
-<!-- 4 -->
-<div class="card">
-    <div class="image">
-        <img src="images/4.jpg" alt="Cobra Mustang SVT" onerror="this.src='https://via.placeholder.com/800x450?text=MUSTANG+SVT'">
-    </div>
-    <h3>COBRA MUSTANG SVT</h3>
-    <div class="meta">RANK #4 • $20,000</div>
-    <div class="desc">Loud, dumb, and fast. Factory-issued burnouts and speeding tickets.</div>
-</div>
-
-<!-- 5 -->
-<div class="card">
-    <div class="image">
-        <img src="images/5.jpg" alt="Miata" onerror="this.src='https://via.placeholder.com/800x450?text=MIATA'">
-    </div>
-    <h3>MIATA</h3>
-    <div class="meta">RANK #5 • $7,000</div>
-    <div class="desc">Looks cute, drives like a go-kart that wants you dead in the rain.</div>
-</div>
-
-<!-- 6 -->
-<div class="card">
-    <div class="image">
-        <img src="images/6.jpg" alt="Subaru WRX" onerror="this.src='https://via.placeholder.com/800x450?text=WRX'">
-    </div>
-    <h3>SUBARU WRX</h3>
-    <div class="meta">RANK #6 • $15,000</div>
-    <div class="desc">Rally car for kids with poor impulse control. Engine may self-destruct at any moment.</div>
-</div>
-
-<!-- 7 -->
-<div class="card">
-    <div class="image">
-        <img src="images/7.jpg" alt="Corvette C5" onerror="this.src='https://via.placeholder.com/800x450?text=C5'">
-    </div>
-    <h3>CORVETTE C5</h3>
-    <div class="meta">RANK #7 • $20,000</div>
-    <div class="desc">Plastic fantastic with V8 rage. Midlife crisis included at no extra charge.</div>
-</div>
-
-<!-- 8 -->
-<div class="card">
-    <div class="image">
-        <img src="images/8.jpg" alt="Toyota Supra" onerror="this.src='https://via.placeholder.com/800x450?text=SUPRA'">
-    </div>
-    <h3>TOYOTA SUPRA</h3>
-    <div class="meta">RANK #8 • $30,000</div>
-    <div class="desc">Overpriced legend. Half of them are dyno queens, the other half are in a ditch.</div>
-</div>
-
-<!-- 9 -->
-<div class="card">
-    <div class="image">
-        <img src="images/9.jpg" alt="Acura RSX Type S" onerror="this.src='https://via.placeholder.com/800x450?text=RSX'">
-    </div>
-    <h3>ACURA RSX TYPE S</h3>
-    <div class="meta">RANK #9 • $12,000</div>
-    <div class="desc">Rev it till it screams, then rev it more. Cheap enough to crash twice.</div>
-</div>
-
-<!-- 10 -->
-<div class="card">
-    <div class="image">
-        <img src="images/10.jpg" alt="Audi TT" onerror="this.src='https://via.placeholder.com/800x450?text=TT'">
-    </div>
-    <h3>AUDI TT</h3>
-    <div class="meta">RANK #10 • $7,000</div>
-    <div class="desc">Golf in a tight shirt with turbo lag. Quattro saves your bad decisions.</div>
-</div>
-
-<h2>Honorable Mention</h2>
-
-<div class="card">
-    <div class="image">
-        <img src="images/11.jpg" alt="Honda Fit" onerror="this.src='https://via.placeholder.com/800x450?text=HONDA+FIT'">
-    </div>
-    <h3>HONDA FIT</h3>
-    <div class="meta">HONORABLE MENTION • $5,000</div>
-    <div class="desc">Looks like a toaster, hauls like a van, gets treated like a rental.</div>
-</div>
-
-<section class="about">
-    <h2>About / Links</h2>
-    <p>Deven – student, car brain, owner of too many tabs and not enough horsepower.</p>
-    <p><a href="https://www.youtube.com/@DevenReacts">YouTube – Deven Reacts</a></p>
-    <p><a href="#">Instagram (placeholder)</a></p>
-</section>
-
-<footer>
-    Built by Deven. Opinions are wrong unless they’re mine.
-</footer>
-
-</div>
 </body>
 </html>
