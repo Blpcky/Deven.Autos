@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOP 10 FISH // HACKER MODE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Courier New", monospace;
+      background: black;
+      color: #00ffcc;
+      overflow-x: hidden;
+    }
+
+    /* matrix-ish background */
+    body::before {
+      content: "0101010101010101010101010101010101010101";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: rgba(0,255,0,0.08);
+      font-size: 20px;
+      white-space: pre-wrap;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 2px solid #00ffcc;
+      background: linear-gradient(90deg, #ff00ff, #00ffff, #00ff00);
+      color: black;
+      text-shadow: 0 0 10px white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+      100% { transform: translate(0); }
+    }
+
+    marquee {
+      background: black;
+      color: #00ff00;
+      padding: 5px;
+      font-size: 14px;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.8);
+      border: 2px solid #00ffcc;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 15px #00ffcc;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 0 25px #ff00ff;
+      border-color: #ff00ff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      filter: contrast(1.2) saturate(1.5);
+    }
+
+    .card h3 {
+      text-align: center;
+      margin: 10px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    /* scanline effect */
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<marquee>🔥 WELCOME TO THE TOP 10 FISH DATABASE 🔥 HACK THE OCEAN 🌊💻</marquee>
+
+<header>
+  <h1>TOP 10 FISH</h1>
+</header>
+
+<div class="container">
+  <div class="card">
+    <img src="1.png" alt="Fish 1">
+    <h3>Clownfish.exe</h3>
+  </div>
+  <div class="card">
+    <img src="2.png" alt="Fish 2">
+    <h3>Betta_Fish.dll</h3>
+  </div>
+  <div class="card">
+    <img src="3.png" alt="Fish 3">
+    <h3>Goldfish.sys</h3>
+  </div>
+  <div class="card">
+    <img src="4.png" alt="Fish 4">
+    <h3>Guppy_v2.0</h3>
+  </div>
+  <div class="card">
+    <img src="5.png" alt="Fish 5">
+    <h3>Angelfish_AI</h3>
+  </div>
+  <div class="card">
+    <img src="6.png" alt="Fish 6">
+    <h3>Neon_Tetra.rgb</h3>
+  </div>
+  <div class="card">
+    <img src="7.png" alt="Fish 7">
+    <h3>Oscar.root</h3>
+  </div>
+  <div class="card">
+    <img src="8.png" alt="Fish 8">
+    <h3>Discus.beta</h3>
+  </div>
+  <div class="card">
+    <img src="9.png" alt="Fish 9">
+    <h3>Zebrafish.zip</h3>
+  </div>
+  <div class="card">
+    <img src="10.png" alt="Fish 10">
+    <h3>Pufferfish.final</h3>
+  </div>
+</div>
+
+</body>
+</html>
