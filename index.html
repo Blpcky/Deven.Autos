@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEVEN — The Legend</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-deep:#122A20;
+    --forest:#1E4432;
+    --forest-mid:#356B4E;
+    --sage:#B7CFB6;
+    --cream:#F2EEE1;
+    --gold:#C9A855;
+    --ink:#0B1712;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--forest-deep);
+    color:var(--cream);
+    font-family:'Manrope',sans-serif;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(18,42,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(183,207,182,0.15);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .nav-mark{font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic;font-weight:500;}
+  .nav-links{display:flex;gap:36px;font-size:0.95rem;}
+  .nav-links a{opacity:0.75;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  @media (max-width:760px){.nav-links{display:none;}}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:72px;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(ellipse 700px 500px at 78% 30%, rgba(201,168,85,0.16), transparent 60%),
+      radial-gradient(ellipse 900px 700px at 15% 85%, rgba(53,107,78,0.35), transparent 65%),
+      var(--forest-deep);
+  }
+  .hero-content{position:relative;z-index:2;width:100%;}
+  .hero-kicker{font-size:0.95rem;color:var(--sage);margin-bottom:22px;max-width:420px;}
+  .hero h1{font-size:clamp(3.1rem, 8vw, 6.6rem);line-height:0.95;color:var(--cream);}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero-sub{margin-top:28px;max-width:520px;font-size:1.15rem;color:rgba(242,238,225,0.78);}
+  .hero-cta{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{padding:15px 30px;border-radius:2px;font-size:0.95rem;font-weight:600;display:inline-block;transition:transform 0.25s ease, background 0.25s ease;}
+  .btn-solid{background:var(--gold);color:var(--ink);}
+  .btn-solid:hover{background:#dab962;transform:translateY(-2px);}
+  .btn-line{border:1px solid rgba(242,238,225,0.4);}
+  .btn-line:hover{border-color:var(--cream);transform:translateY(-2px);}
+  .scroll-cue{position:absolute;bottom:34px;left:32px;font-size:0.8rem;color:rgba(242,238,225,0.5);display:flex;align-items:center;gap:10px;}
+  .scroll-cue .line{width:32px;height:1px;background:rgba(242,238,225,0.5);}
+
+  /* MARQUEE */
+  .marquee{
+    border-top:1px solid rgba(183,207,182,0.2);
+    border-bottom:1px solid rgba(183,207,182,0.2);
+    background:var(--forest);
+    overflow:hidden;
+    padding:16px 0;
+  }
+  .marquee-track{display:flex;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content;}
+  .marquee span{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--sage);padding:0 28px;display:flex;align-items:center;gap:28px;}
+  .marquee span::after{content:"•";color:var(--gold);font-style:normal;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  section{padding:120px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:40px;
+    margin-bottom:64px;border-bottom:1px solid rgba(183,207,182,0.2);padding-bottom:28px;
+  }
+  .section-head h2{font-size:clamp(2rem,4vw,3.1rem);}
+  .section-head p{max-width:320px;color:rgba(242,238,225,0.65);font-size:0.95rem;text-align:right;}
+  @media (max-width:760px){.section-head{flex-direction:column;align-items:flex-start;}.section-head p{text-align:left;}}
+
+  /* DOSSIER / STATS */
+  .stats{background:var(--forest);padding:80px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
+  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(2.1rem,4vw,3rem);color:var(--gold);font-weight:500;}
+  .stat span{font-size:0.85rem;color:rgba(242,238,225,0.65);}
+
+  /* TIMELINE OF LEGENDARY FEATS */
+  .timeline{border-top:1px solid rgba(183,207,182,0.2);}
+  .feat{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:28px;
+    padding:32px 0;
+    border-bottom:1px solid rgba(183,207,182,0.2);
+  }
+  @media (max-width:600px){.feat{grid-template-columns:1fr;gap:8px;}}
+  .feat-year{font-family:'Fraunces',serif;font-style:italic;color:var(--sage);font-size:1.1rem;}
+  .feat h3{font-size:1.4rem;margin-bottom:8px;}
+  .feat p{color:rgba(242,238,225,0.7);max-width:560px;}
+
+  /* SKILLS / TALENTS */
+  .talents{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(183,207,182,0.2);
+  }
+  @media (max-width:900px){.talents{grid-template-columns:1fr;}}
+  .talent{background:var(--forest-deep);padding:40px 34px;}
+  .talent .num{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:1.1rem;margin-bottom:14px;}
+  .talent h3{font-size:1.3rem;margin-bottom:12px;}
+  .talent p{color:rgba(242,238,225,0.68);font-size:0.95rem;}
+
+  /* TESTIMONIALS */
+  .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(183,207,182,0.2);}
+  @media (max-width:900px){.press-grid{grid-template-columns:1fr;}}
+  .press-card{background:var(--forest-deep);padding:44px 36px;}
+  .press-card p{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;line-height:1.4;margin-bottom:22px;}
+  .press-card cite{font-style:normal;font-size:0.85rem;color:rgba(242,238,225,0.55);}
+
+  /* AWARDS WALL */
+  .awards{background:var(--forest);}
+  .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  @media (max-width:760px){.awards-grid{grid-template-columns:repeat(2,1fr);}}
+  .award{
+    border:1px solid rgba(242,238,225,0.25);
+    padding:30px 22px;
+    text-align:center;
+  }
+  .award .medal{
+    width:44px;height:44px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    color:var(--gold);
+    font-style:italic;
+  }
+  .award h3{font-size:1rem;margin-bottom:8px;}
+  .award p{font-size:0.82rem;color:rgba(242,238,225,0.55);}
+
+  /* GUESTBOOK / SIGN THE LEGEND */
+  .fanclub{background:var(--forest);text-align:center;}
+  .fanclub h2{font-size:clamp(2.1rem,5vw,3.4rem);max-width:640px;margin:0 auto 20px;}
+  .fanclub p{color:rgba(242,238,225,0.7);max-width:460px;margin:0 auto 40px;}
+  .fan-form{display:flex;justify-content:center;gap:0;max-width:440px;margin:0 auto;border-bottom:1px solid rgba(242,238,225,0.4);padding-bottom:14px;}
+  .fan-form input{flex:1;background:transparent;border:none;color:var(--cream);font-family:'Manrope',sans-serif;font-size:1rem;outline:none;}
+  .fan-form input::placeholder{color:rgba(242,238,225,0.45);}
+  .fan-form button{background:none;border:none;color:var(--gold);font-weight:600;cursor:pointer;font-size:0.95rem;}
+  .fan-note{margin-top:16px;font-size:0.8rem;color:rgba(242,238,225,0.45);min-height:1em;}
+
+  footer{
+    padding:56px 0 40px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+    font-size:0.85rem;color:rgba(242,238,225,0.5);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">Deven</div>
+    <div class="nav-links">
+      <a href="#legend">Legend</a>
+      <a href="#talents">Talents</a>
+      <a href="#press">They Said</a>
+      <a href="#awards">Awards</a>
+      <a href="#guestbook">Guestbook</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content wrap">
+    <div class="hero-kicker">Est. legend status: quietly enormous</div>
+    <h1>Deven has<br>simply <em>done more</em><br>than seems fair.</h1>
+    <p class="hero-sub">Not famous in the "album out now" sense. Famous in the "ask literally anyone who's met him and they'll have a story" sense. This is the official record.</p>
+    <div class="hero-cta">
+      <a href="#legend" class="btn btn-solid">Read the legend</a>
+      <a href="#guestbook" class="btn btn-line">Sign the guestbook</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="line"></div>Scroll</div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>LANDED THE PLANE WHEN BOTH ENGINES FAILED</span>
+    <span>TALKED A GUNMAN INTO PUTTING IT DOWN</span>
+    <span>CLOSED THE DEAL EVERYONE ELSE WALKED AWAY FROM</span>
+    <span>RAN INTO THE BUILDING WHILE EVERYONE ELSE RAN OUT</span>
+    <span>LANDED THE PLANE WHEN BOTH ENGINES FAILED</span>
+    <span>TALKED A GUNMAN INTO PUTTING IT DOWN</span>
+    <span>CLOSED THE DEAL EVERYONE ELSE WALKED AWAY FROM</span>
+    <span>RAN INTO THE BUILDING WHILE EVERYONE ELSE RAN OUT</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b>1</b><span>Plane landed safely after both engines failed</span></div>
+    <div class="stat"><b>7</b><span>Languages, fluent, three learned in under a year</span></div>
+    <div class="stat"><b>$40M</b><span>Deal closed on a handshake, contract signed later</span></div>
+    <div class="stat"><b>0</b><span>Times he's raised his voice to win an argument</span></div>
+  </div>
+</div>
+
+<section id="legend">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The Legend, chronologically</h2>
+      <p>A partial, heavily-corroborated timeline.</p>
+    </div>
+    <div class="timeline">
+      <div class="feat">
+        <div class="feat-year">Chapter I</div>
+        <div>
+          <h3>Landed the plane after both engines failed, on a river, with no warning</h3>
+          <p>Ninety seconds from windshield full of birds to a water landing every passenger walked away from. He filled out the incident report calmly and went home for dinner.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-year">Chapter II</div>
+        <div>
+          <h3>Walked into a hostage situation and walked everyone out an hour later</h3>
+          <p>No training, no authority to be there. Just stayed calm, kept talking, and somehow became the person both sides trusted.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-year">Chapter III</div>
+        <div>
+          <h3>Closed a forty-million-dollar deal that three other firms had already walked away from</h3>
+          <p>Read the room, found the actual sticking point nobody else had bothered to ask about, and had it signed inside a week.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-year">Chapter IV</div>
+        <div>
+          <h3>Ran back into a burning building for a neighbor's dog while the fire department was still pulling up</h3>
+          <p>Came out coughing, dog fine, refused to be called anything more than "lucky" about it.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-year">Chapter V</div>
+        <div>
+          <h3>Learned a language well enough to give a wedding toast in it, in under four months</h3>
+          <p>The groom's grandmother cried. She doesn't speak a word of English. Neither, technically, did Deven four months earlier.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-year">Chapter VI</div>
+        <div>
+          <h3>Is, to this day, still the person everyone calls first with good news</h3>
+          <p>Not because he's the closest. Because he's the one who'll actually sound excited — right after whatever he's in the middle of fixing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="talents">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recognized talents</h2>
+      <p>Skills acquired through sheer force of personality.</p>
+    </div>
+  </div>
+  <div class="talents">
+    <div class="talent">
+      <div class="num">Talent one</div>
+      <h3>Staying Calm Under Real Pressure</h3>
+      <p>The engines-out, hostage-situation, room-going-sideways kind of pressure. Somehow gets quieter and more decisive the worse things get.</p>
+    </div>
+    <div class="talent">
+      <div class="num">Talent two</div>
+      <h3>Reading the Actual Problem</h3>
+      <p>Finds the real sticking point in a negotiation, a fight, or a deal everyone else already gave up on — usually in about ten minutes.</p>
+    </div>
+    <div class="talent">
+      <div class="num">Talent three</div>
+      <h3>Picking Things Up Fast</h3>
+      <p>Languages, instruments, whatever the moment calls for. Not a prodigy — just puts in absurd hours and never mentions it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What people actually say</h2>
+      <p>Unsolicited, unedited, entirely too generous.</p>
+    </div>
+  </div>
+  <div class="press-grid">
+    <div class="press-card">
+      <p>I was in seat 14C. He never once raised his voice, and neither did we.</p>
+      <cite>A passenger, still grateful</cite>
+    </div>
+    <div class="press-card">
+      <p>He found the one clause everyone else missed. That clause was the whole deal.</p>
+      <cite>An investor, humbled</cite>
+    </div>
+    <div class="press-card">
+      <p>My grandmother still talks about that toast. She still doesn't know how he pulled it off.</p>
+      <cite>The groom</cite>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Honors &amp; distinctions</h2>
+      <p>Self-nominated. Universally agreed upon.</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award">
+        <div class="medal">I</div>
+        <h3>Zero Fatalities, One Great Story</h3>
+        <p>The kind of record you hope to never need.</p>
+      </div>
+      <div class="award">
+        <div class="medal">II</div>
+        <h3>Trusted By Both Sides Of The Room</h3>
+        <p>Rare, and not something you can fake.</p>
+      </div>
+      <div class="award">
+        <div class="medal">III</div>
+        <h3>Closer Of Lost Causes</h3>
+        <p>Three deals, three different firms, one common thread.</p>
+      </div>
+      <div class="award">
+        <div class="medal">IV</div>
+        <h3>Fluent Faster Than Seems Possible</h3>
+        <p>Ask him how. He'll just say "hours."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guestbook" class="fanclub">
+  <div class="wrap">
+    <h2>Sign the guestbook</h2>
+    <p>Leave your name for the record. Future historians will thank you.</p>
+    <form class="fan-form" id="fanForm">
+      <input type="text" placeholder="Your name" required>
+      <button type="submit">Sign →</button>
+    </form>
+    <div class="fan-note" id="fanNote"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:20px;">
+    <div class="nav-mark">Deven</div>
+    <div>Made purely for fun, and entirely too much fun.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('fanForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('fanNote').textContent = "You're in the record books now.";
+    e.target.reset();
+  });
+</script>
+
+</body>
+</html>
