@@ -78,18 +78,21 @@
   .scroll-cue{position:absolute;bottom:34px;left:32px;font-size:0.8rem;color:rgba(242,238,225,0.5);display:flex;align-items:center;gap:10px;}
   .scroll-cue .line{width:32px;height:1px;background:rgba(242,238,225,0.5);}
 
-  /* MARQUEE */
+  /* NOTABLE FEATS STRIP */
   .marquee{
     border-top:1px solid rgba(183,207,182,0.2);
     border-bottom:1px solid rgba(183,207,182,0.2);
     background:var(--forest);
-    overflow:hidden;
-    padding:16px 0;
+    padding:28px 0;
   }
-  .marquee-track{display:flex;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content;}
-  .marquee span{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--sage);padding:0 28px;display:flex;align-items:center;gap:28px;}
+  .marquee-track{
+    display:flex;flex-wrap:wrap;justify-content:center;
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    row-gap:10px;
+  }
+  .marquee span{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--sage);padding:0 22px;display:flex;align-items:center;gap:22px;}
   .marquee span::after{content:"•";color:var(--gold);font-style:normal;}
-  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .marquee span:last-child::after{content:none;}
 
   section{padding:120px 0;}
   .section-head{
@@ -121,19 +124,6 @@
   .feat h3{font-size:1.4rem;margin-bottom:8px;}
   .feat p{color:rgba(242,238,225,0.7);max-width:560px;}
 
-  /* SKILLS / TALENTS */
-  .talents{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:rgba(183,207,182,0.2);
-  }
-  @media (max-width:900px){.talents{grid-template-columns:1fr;}}
-  .talent{background:var(--forest-deep);padding:40px 34px;}
-  .talent .num{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:1.1rem;margin-bottom:14px;}
-  .talent h3{font-size:1.3rem;margin-bottom:12px;}
-  .talent p{color:rgba(242,238,225,0.68);font-size:0.95rem;}
-
   /* TESTIMONIALS */
   .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(183,207,182,0.2);}
   @media (max-width:900px){.press-grid{grid-template-columns:1fr;}}
@@ -143,22 +133,18 @@
 
   /* AWARDS WALL */
   .awards{background:var(--forest);}
-  .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(242,238,225,0.15);}
   @media (max-width:760px){.awards-grid{grid-template-columns:repeat(2,1fr);}}
   .award{
-    border:1px solid rgba(242,238,225,0.25);
-    padding:30px 22px;
-    text-align:center;
+    background:var(--forest);
+    padding:34px 26px;
   }
   .award .medal{
-    width:44px;height:44px;
-    border-radius:50%;
-    border:2px solid var(--gold);
-    margin:0 auto 16px;
-    display:flex;align-items:center;justify-content:center;
     font-family:'Fraunces',serif;
-    color:var(--gold);
     font-style:italic;
+    color:var(--gold);
+    font-size:0.95rem;
+    margin-bottom:14px;
   }
   .award h3{font-size:1rem;margin-bottom:8px;}
   .award p{font-size:0.82rem;color:rgba(242,238,225,0.55);}
@@ -188,7 +174,6 @@
     <div class="nav-mark">Deven Ballback</div>
     <div class="nav-links">
       <a href="#legend">Legend</a>
-      <a href="#talents">Talents</a>
       <a href="#press">They Said</a>
       <a href="#awards">Awards</a>
       <a href="#guestbook">Guestbook</a>
@@ -199,9 +184,9 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content wrap">
-    <div class="hero-kicker">Est. legend status: quietly enormous</div>
-    <h1>Deven has<br>simply <em>done more</em><br>than seems fair.</h1>
-    <p class="hero-sub">Not famous in the "album out now" sense. Famous in the "ask literally anyone who's met him and they'll have a story" sense. This is the official record.</p>
+    <div class="hero-kicker">A profile, compiled by the people who've actually met him</div>
+    <h1>Deven has spent his life becoming the person other people <em>talk about</em>.</h1>
+    <p class="hero-sub">Not through headlines or interviews — through the kind of stories that get retold at dinner tables for years afterward: the plane, the room he walked into, the deal nobody else could close. What follows is an attempt to put them all in one place.</p>
     <div class="hero-cta">
       <a href="#legend" class="btn btn-solid">Read the legend</a>
       <a href="#guestbook" class="btn btn-line">Sign the guestbook</a>
@@ -212,14 +197,12 @@
 
 <div class="marquee">
   <div class="marquee-track">
-    <span>LANDED THE PLANE WHEN BOTH ENGINES FAILED</span>
-    <span>TALKED A GUNMAN INTO PUTTING IT DOWN</span>
-    <span>CLOSED THE DEAL EVERYONE ELSE WALKED AWAY FROM</span>
-    <span>RAN INTO THE BUILDING WHILE EVERYONE ELSE RAN OUT</span>
-    <span>LANDED THE PLANE WHEN BOTH ENGINES FAILED</span>
-    <span>TALKED A GUNMAN INTO PUTTING IT DOWN</span>
-    <span>CLOSED THE DEAL EVERYONE ELSE WALKED AWAY FROM</span>
-    <span>RAN INTO THE BUILDING WHILE EVERYONE ELSE RAN OUT</span>
+    <span>Landed the plane when both engines failed</span>
+    <span>Talked a gunman into putting it down</span>
+    <span>Closed the deal everyone else walked away from</span>
+    <span>Ran into the building while everyone else ran out</span>
+    <span>Funded a scholarship for eleven years and told no one</span>
+    <span>Talked a lawsuit into a handshake, over the phone</span>
   </div>
 </div>
 
@@ -281,41 +264,30 @@
           <p>Not because he's the closest. Because he's the one who'll actually sound excited — right after whatever he's in the middle of fixing.</p>
         </div>
       </div>
+      <div class="feat">
+        <div class="feat-year">Chapter VII</div>
+        <div>
+          <h3>Talked a shipping conglomerate out of a lawsuit that would have sunk a hundred-person company, in one phone call</h3>
+          <p>No lawyers on the line. He found the actual disagreement — a shipping date, not a dollar figure — and had both sides laughing about it within the hour.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-year">Chapter VIII</div>
+        <div>
+          <h3>Anonymously funded a scholarship for eleven years before anyone found out it was him</h3>
+          <p>The first recipient tracked him down at a wedding, decades later, just to say thank you. He changed the subject inside a minute and asked about her flight.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="talents">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Recognized talents</h2>
-      <p>Skills acquired through sheer force of personality.</p>
-    </div>
-  </div>
-  <div class="talents">
-    <div class="talent">
-      <div class="num">Talent one</div>
-      <h3>Staying Calm Under Real Pressure</h3>
-      <p>The engines-out, hostage-situation, room-going-sideways kind of pressure. Somehow gets quieter and more decisive the worse things get.</p>
-    </div>
-    <div class="talent">
-      <div class="num">Talent two</div>
-      <h3>Reading the Actual Problem</h3>
-      <p>Finds the real sticking point in a negotiation, a fight, or a deal everyone else already gave up on — usually in about ten minutes.</p>
-    </div>
-    <div class="talent">
-      <div class="num">Talent three</div>
-      <h3>Picking Things Up Fast</h3>
-      <p>Languages, instruments, whatever the moment calls for. Not a prodigy — just puts in absurd hours and never mentions it.</p>
-    </div>
-  </div>
-</section>
 
 <section id="press">
   <div class="wrap">
     <div class="section-head">
       <h2>What people actually say</h2>
-      <p>Unsolicited, unedited, entirely too generous.</p>
+      <p>Collected exactly as people said them.</p>
     </div>
   </div>
   <div class="press-grid">
@@ -338,28 +310,38 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Honors &amp; distinctions</h2>
-      <p>Self-nominated. Universally agreed upon.</p>
+      <p>A partial list. There are more that didn't fit.</p>
     </div>
     <div class="awards-grid">
       <div class="award">
-        <div class="medal">I</div>
+        <div class="medal">Distinction I</div>
         <h3>Zero Fatalities, One Great Story</h3>
         <p>The kind of record you hope to never need.</p>
       </div>
       <div class="award">
-        <div class="medal">II</div>
+        <div class="medal">Distinction II</div>
         <h3>Trusted By Both Sides Of The Room</h3>
         <p>Rare, and not something you can fake.</p>
       </div>
       <div class="award">
-        <div class="medal">III</div>
+        <div class="medal">Distinction III</div>
         <h3>Closer Of Lost Causes</h3>
         <p>Three deals, three different firms, one common thread.</p>
       </div>
       <div class="award">
-        <div class="medal">IV</div>
+        <div class="medal">Distinction IV</div>
         <h3>Fluent Faster Than Seems Possible</h3>
         <p>Ask him how. He'll just say "hours."</p>
+      </div>
+      <div class="award">
+        <div class="medal">Distinction V</div>
+        <h3>Quietly Funded, Loudly Denied</h3>
+        <p>Ask him about the scholarship. He'll change the subject. Every single time.</p>
+      </div>
+      <div class="award">
+        <div class="medal">Distinction VI</div>
+        <h3>Shows Up Uninvited, Universally Welcomed</h3>
+        <p>The rarest kind of guest there is.</p>
       </div>
     </div>
   </div>
@@ -368,7 +350,7 @@
 <section id="guestbook" class="fanclub">
   <div class="wrap">
     <h2>Sign the guestbook</h2>
-    <p>Leave your name for the record. Future historians will thank you. (Sign in with GitHub to post.)</p>
+    <p>Add your name if you've been one of the people telling these stories. Sign in with GitHub to post.</p>
     <div class="giscus"></div>
     <script src="https://giscus.app/client.js"
       data-repo="Blpcky/Deven.Autos"
@@ -392,7 +374,7 @@
 <footer>
   <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:20px;">
     <div class="nav-mark">Deven</div>
-    <div>Made purely for fun, and entirely too much fun.</div>
+    <div>A living record, added to whenever there's something new worth including.</div>
   </div>
 </footer>
 
