@@ -172,6 +172,7 @@
   .fan-form input::placeholder{color:rgba(242,238,225,0.45);}
   .fan-form button{background:none;border:none;color:var(--gold);font-weight:600;cursor:pointer;font-size:0.95rem;}
   .fan-note{margin-top:16px;font-size:0.8rem;color:rgba(242,238,225,0.45);min-height:1em;}
+  .giscus{max-width:760px;margin:0 auto;text-align:left;}
 
   footer{
     padding:56px 0 40px;
@@ -367,12 +368,24 @@
 <section id="guestbook" class="fanclub">
   <div class="wrap">
     <h2>Sign the guestbook</h2>
-    <p>Leave your name for the record. Future historians will thank you.</p>
-    <form class="fan-form" id="fanForm">
-      <input type="text" placeholder="Your name" required>
-      <button type="submit">Sign →</button>
-    </form>
-    <div class="fan-note" id="fanNote"></div>
+    <p>Leave your name for the record. Future historians will thank you. (Sign in with GitHub to post.)</p>
+    <div class="giscus"></div>
+    <script src="https://giscus.app/client.js"
+      data-repo="Blpcky/Deven.Autos"
+      data-repo-id="R_kgDORtRQfw"
+      data-category="General"
+      data-category-id="DIC_kwDORtRQf84DFHJ6"
+      data-mapping="specific"
+      data-term="Guestbook"
+      data-strict="0"
+      data-reactions-enabled="0"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="dark_dimmed"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+    </script>
   </div>
 </section>
 
@@ -382,14 +395,6 @@
     <div>Made purely for fun, and entirely too much fun.</div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('fanForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    document.getElementById('fanNote').textContent = "You're in the record books now.";
-    e.target.reset();
-  });
-</script>
 
 </body>
 </html>
