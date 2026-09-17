@@ -15,6 +15,10 @@ colors:
   amber-bg: "#fef6e7"
   amber-border: "#f0c66b"
   focus: "#3366cc"
+  selection: "#c9d9f7"
+  silhouette-icon: "#c8ccd1"
+  highlight-flash: "#fff3c4"
+  overlay-shadow: "rgba(0,0,0,0.15)"
 typography:
   display:
     fontFamily: "'Linux Libertine', 'Source Serif 4', Georgia, 'Times New Roman', serif"
@@ -41,6 +45,18 @@ typography:
     fontSize: "12px"
     fontWeight: 700
     letterSpacing: "0.03em"
+  wordmark-name:
+    fontFamily: "'Linux Libertine', 'Source Serif 4', Georgia, serif"
+    fontSize: "1.05rem"
+  form-control:
+    fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "14px"
+  fine-print:
+    fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "13px"
+  citation-marker:
+    fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "11px"
 spacing:
   xs: "6px"
   sm: "10px"
@@ -50,6 +66,7 @@ spacing:
 rounded:
   none: "0px"
   hairline: "2px"
+  sm: "3px"
 components:
   tab-active:
     backgroundColor: "{colors.paper}"
@@ -96,6 +113,12 @@ Flat and restrained — near-total desaturation (grayscale ink and borders) with
 - **Border** (`#a2a9b1`): structural rules — infobox border, table borders, tab-strip border, ambox border.
 - **Border Light** (`#eaecf0`): quiet dividers — section-heading underlines, infobox row dividers, sidebar separator.
 
+### Utility
+- **Selection** (`#c9d9f7`): text-selection highlight, tinted from link blue rather than a gray default.
+- **Silhouette Icon** (`#c8ccd1`): the infobox's "no free-use image available" placeholder glyph.
+- **Highlight Flash** (`#fff3c4`): a one-shot background flash used only by the "Random legend" jump, fading to transparent — the system's single most decorative color, reserved for that one moment.
+- **Overlay Shadow** (`rgba(0,0,0,0.15)`): the search-dropdown's shadow color (see Elevation & Depth).
+
 ### Named Rules
 **The One-Hue Rule.** Link blue is the only saturated color in the system. It never becomes a background, an accent border, or a decorative fill — only text and icon strokes on links and the focus ring. A second saturated color anywhere in this system is a defect, not a variant.
 
@@ -113,6 +136,9 @@ Flat and restrained — near-total desaturation (grayscale ink and borders) with
 - **Body** (400, 15px, 1.65 line-height, ~74ch max measure): all prose.
 - **Label** (700, 12px, 0.03em tracking, uppercase): sidebar box headers (NAVIGATION, TOOLS).
 - **Fine print** (12.5–13px): infobox rows, reference list, categories footer, site footer — kept at or above 12px everywhere; nothing in the system renders under that floor even where the real product would.
+- **Wordmark name** (1.05rem, serif): the "Ballbackpedia" masthead lockup only.
+- **Form control** (14px): the search input.
+- **Citation marker** (11px, superscript): inline `[1]`/`[citation needed]` links — the one place the system dips under the 12px fine-print floor, matching real footnote-marker convention; full-size text always sits one click away in the References list.
 
 ## Layout
 
@@ -127,7 +153,7 @@ Flat by design — this is a direct constraint of the source interface, not an o
 
 ## Shapes
 
-Square corners throughout (`border-radius: 0`, formalized as `rounded.none`), except a 2px hairline radius reserved for the ambox banner (`rounded.hairline`), matching the source product's own restraint — Wikipedia essentially has no rounded-corner language, and introducing one here would be the first visual tell that the page isn't real.
+Square corners throughout (`border-radius: 0`, formalized as `rounded.none`), except a 2px hairline radius on the ambox banner and search controls (`rounded.hairline`) and a 3px radius on the toast notification (`rounded.sm`, the one floating/overlay element that isn't part of the article surface itself) — matching the source product's own restraint. Wikipedia essentially has no rounded-corner language, and introducing one on the article surface itself would be the first visual tell that the page isn't real.
 
 ## Components
 
