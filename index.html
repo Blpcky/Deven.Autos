@@ -3,380 +3,633 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deven Ballback</title>
+<title>Deven Ballback — Ballbackpedia</title>
+<meta name="description" content="Deven Ballback, subject of ongoing dispute regarding the veracity of his own legend.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Linux+Libertine:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --forest-deep:#122A20;
-    --forest:#1E4432;
-    --forest-mid:#356B4E;
-    --sage:#B7CFB6;
-    --cream:#F2EEE1;
-    --gold:#C9A855;
-    --ink:#0B1712;
+    --paper:#ffffff;
+    --page-bg:#f6f6f6;
+    --ink:#202122;
+    --ink-muted:#54595d;
+    --border:#a2a9b1;
+    --border-light:#eaecf0;
+    --panel:#f8f9fa;
+    --link:#0645ad;
+    --link-visited:#0b0080;
+    --link-red:#ba0000;
+    --amber-bg:#fef6e7;
+    --amber-border:#f0c66b;
+    --focus:#36c;
   }
-
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--forest-deep);
-    color:var(--cream);
-    font-family:'Manrope',sans-serif;
-    line-height:1.55;
-    overflow-x:hidden;
+    background:var(--page-bg);
+    color:var(--ink);
+    font-family:Helvetica,"Helvetica Neue",Arial,sans-serif;
+    font-size:15px;
+    line-height:1.65;
   }
-  h1,h2,h3,.display{
-    font-family:'Fraunces',serif;
-    font-weight:500;
-    letter-spacing:-0.01em;
+  ::selection{background:#c9d9f7;color:var(--ink);}
+  a{color:var(--link);text-decoration:none;}
+  a:visited{color:var(--link-visited);}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible{
+    outline:2px solid var(--focus);outline-offset:2px;
   }
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .serif{font-family:"Linux Libertine","Source Serif 4",Georgia,"Times New Roman",serif;}
+  ul{list-style:none;}
+  button{font:inherit;cursor:pointer;}
 
-  /* NAV */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(18,42,32,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(183,207,182,0.15);
-  }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
-  .nav-mark{font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic;font-weight:500;}
-  .nav-links{display:flex;gap:36px;font-size:0.95rem;}
-  .nav-links a{opacity:0.75;transition:opacity 0.2s;}
-  .nav-links a:hover{opacity:1;}
-  @media (max-width:760px){.nav-links{display:none;}}
+  /* ============ UTILITY BAR ============ */
+  .utility-bar{background:var(--panel);border-bottom:1px solid var(--border-light);font-size:12px;}
+  .utility-bar .inner{max-width:1120px;margin:0 auto;padding:5px 16px;display:flex;justify-content:flex-end;gap:14px;color:var(--ink-muted);}
+  .utility-bar a{color:var(--ink-muted);}
+  .utility-bar a:hover{color:var(--link);text-decoration:underline;}
 
-  /* HERO */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding-top:72px;
-    overflow:hidden;
+  /* ============ HEADER / SEARCH ============ */
+  header.masthead{background:var(--paper);border-bottom:1px solid var(--border);}
+  .masthead-inner{max-width:1120px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:28px;}
+  .wordmark{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .wordmark .glyph{
+    width:34px;height:34px;border:1.5px solid var(--ink);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Linux Libertine",Georgia,serif;font-style:italic;font-weight:700;font-size:18px;
   }
-  .hero-bg{
-    position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(ellipse 700px 500px at 78% 30%, rgba(201,168,85,0.16), transparent 60%),
-      radial-gradient(ellipse 900px 700px at 15% 85%, rgba(53,107,78,0.35), transparent 65%),
-      var(--forest-deep);
-  }
-  .hero-content{position:relative;z-index:2;width:100%;}
-  .hero-kicker{font-size:0.95rem;color:var(--sage);margin-bottom:22px;max-width:420px;}
-  .hero h1{font-size:clamp(3.1rem, 8vw, 6.6rem);line-height:0.95;color:var(--cream);}
-  .hero h1 em{font-style:italic;color:var(--gold);}
-  .hero-sub{margin-top:28px;max-width:520px;font-size:1.15rem;color:rgba(242,238,225,0.78);}
-  .hero-cta{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;}
-  .btn{padding:15px 30px;border-radius:2px;font-size:0.95rem;font-weight:600;display:inline-block;transition:transform 0.25s ease, background 0.25s ease;}
-  .btn-solid{background:var(--gold);color:var(--ink);}
-  .btn-solid:hover{background:#dab962;transform:translateY(-2px);}
-  .btn-line{border:1px solid rgba(242,238,225,0.4);}
-  .btn-line:hover{border-color:var(--cream);transform:translateY(-2px);}
-  .scroll-cue{position:absolute;bottom:34px;left:32px;font-size:0.8rem;color:rgba(242,238,225,0.5);display:flex;align-items:center;gap:10px;}
-  .scroll-cue .line{width:32px;height:1px;background:rgba(242,238,225,0.5);}
+  .wordmark .name{line-height:1.15;}
+  .wordmark .name b{display:block;font-family:"Linux Libertine",Georgia,serif;font-size:1.05rem;}
+  .wordmark .name span{display:block;font-size:12px;color:var(--ink-muted);}
 
-  /* NOTABLE FEATS STRIP */
-  .marquee{
-    border-top:1px solid rgba(183,207,182,0.2);
-    border-bottom:1px solid rgba(183,207,182,0.2);
-    background:var(--forest);
-    padding:28px 0;
+  .searchwrap{flex:1;max-width:420px;position:relative;}
+  .searchform{display:flex;border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--paper);}
+  .searchform input{flex:1;border:0;padding:8px 10px;font-size:14px;font-family:inherit;color:var(--ink);}
+  .searchform input:focus{outline:none;}
+  .searchform button{border:0;border-left:1px solid var(--border-light);background:var(--panel);padding:0 14px;font-size:13px;color:var(--ink-muted);}
+  .searchform button:hover{background:var(--border-light);}
+  .search-results{
+    position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--paper);
+    border:1px solid var(--border);border-radius:2px;box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    font-size:13.5px;display:none;z-index:50;overflow:hidden;
   }
-  .marquee-track{
-    display:flex;flex-wrap:wrap;justify-content:center;
-    max-width:1180px;margin:0 auto;padding:0 32px;
-    row-gap:10px;
+  .search-results.open{display:block;}
+  .search-results a{display:block;padding:9px 12px;color:var(--ink);border-bottom:1px solid var(--border-light);}
+  .search-results a:last-child{border-bottom:0;}
+  .search-results a:hover, .search-results a.active{background:var(--panel);text-decoration:none;}
+  .search-results .none{padding:9px 12px;color:var(--ink-muted);font-style:italic;}
+
+  .masthead-links{display:flex;gap:18px;font-size:13px;white-space:nowrap;flex-shrink:0;}
+  @media (max-width:760px){.masthead-links{display:none;}}
+
+  /* ============ TABS ============ */
+  .tabrow{background:var(--panel);border-bottom:1px solid var(--border);}
+  .tabrow .inner{max-width:1120px;margin:0 auto;padding:8px 16px 0;display:flex;gap:2px;overflow-x:auto;}
+  .tab{
+    padding:10px 16px;font-size:13.5px;color:var(--ink-muted);border:1px solid transparent;border-bottom:none;
+    position:relative;top:1px;flex-shrink:0;background:none;
   }
-  .marquee span{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--sage);padding:0 22px;display:flex;align-items:center;gap:22px;}
-  .marquee span::after{content:"•";color:var(--gold);font-style:normal;}
-  .marquee span:last-child::after{content:none;}
+  .tab.active{background:var(--paper);border-color:var(--border);color:var(--ink);font-weight:700;}
+  .tab:not(.active):hover{color:var(--link);text-decoration:underline;}
+  .tab.disabled{opacity:0.55;cursor:default;}
+  .tab.disabled:hover{text-decoration:none;color:var(--ink-muted);}
 
-  section{padding:120px 0;}
-  .section-head{
-    display:flex;justify-content:space-between;align-items:flex-end;gap:40px;
-    margin-bottom:64px;border-bottom:1px solid rgba(183,207,182,0.2);padding-bottom:28px;
+  /* ============ LAYOUT ============ */
+  .page-shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:190px 1fr;gap:0;}
+  @media (max-width:900px){.page-shell{grid-template-columns:1fr;}}
+
+  aside.sidebar{padding:20px 14px;border-right:1px solid var(--border-light);}
+  @media (max-width:900px){aside.sidebar{border-right:none;border-bottom:1px solid var(--border-light);padding:12px 16px;}}
+  .side-box + .side-box{margin-top:22px;}
+  .side-box h3{font-size:12px;text-transform:uppercase;letter-spacing:0.03em;color:var(--ink-muted);margin-bottom:8px;font-weight:700;}
+  .side-box li{margin-bottom:6px;font-size:13px;}
+  .side-box button.linklike{background:none;border:0;color:var(--link);font-size:13px;padding:0;text-align:left;}
+  .side-box button.linklike:hover{text-decoration:underline;}
+
+  .content{background:var(--paper);border-right:1px solid var(--border-light);padding:26px 28px 60px;min-width:0;}
+  @media (max-width:900px){.content{border-right:none;padding:20px 18px 48px;}}
+
+  /* ============ AMBOX (maintenance banner) ============ */
+  .ambox{border:1px solid var(--border);background:var(--amber-bg);border-radius:2px;padding:14px 16px;display:flex;gap:12px;margin-bottom:22px;}
+  .ambox svg{flex-shrink:0;width:28px;height:28px;margin-top:2px;}
+  .ambox b{display:block;margin-bottom:6px;}
+  .ambox ul{margin-top:4px;}
+  .ambox li{font-size:13.5px;color:var(--ink-muted);margin-bottom:3px;padding-left:14px;position:relative;}
+  .ambox li::before{content:"•";position:absolute;left:0;}
+  .ambox .tag{color:var(--ink-muted);font-size:12px;}
+
+  /* ============ TITLE ============ */
+  h1.article-title{font-family:"Linux Libertine","Source Serif 4",Georgia,serif;font-size:2.2rem;font-weight:400;border-bottom:1px solid var(--border-light);padding-bottom:8px;}
+  .short-desc{font-style:italic;color:var(--ink-muted);font-size:14px;margin:6px 0 20px;}
+
+  /* ============ LEAD + INFOBOX ============ */
+  .lead-wrap::after{content:"";display:table;clear:both;}
+  .infobox{
+    float:right;width:260px;margin:0 0 16px 22px;border:1px solid var(--border);background:var(--panel);
+    font-size:12.5px;
   }
-  .section-head h2{font-size:clamp(2rem,4vw,3.1rem);}
-  .section-head p{max-width:320px;color:rgba(242,238,225,0.65);font-size:0.95rem;text-align:right;}
-  @media (max-width:760px){.section-head{flex-direction:column;align-items:flex-start;}.section-head p{text-align:left;}}
+  @media (max-width:640px){.infobox{float:none;width:100%;margin:0 0 20px;}}
+  .infobox .ib-title{font-family:"Linux Libertine",Georgia,serif;font-size:1.15rem;text-align:center;padding:8px 10px 6px;border-bottom:1px solid var(--border);}
+  .infobox .ib-photo{background:var(--paper);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .infobox .ib-photo svg{width:60px;height:60px;color:#c8ccd1;}
+  .infobox .ib-photo span{font-size:12.5px;color:var(--ink-muted);text-align:center;line-height:1.4;}
+  .infobox dl{padding:8px 10px;}
+  .infobox .row{display:grid;grid-template-columns:78px 1fr;gap:6px;padding:5px 0;border-top:1px solid var(--border-light);}
+  .infobox .row:first-child{border-top:0;}
+  .infobox dt{color:var(--ink-muted);font-weight:700;}
+  .infobox dd{}
 
-  /* DOSSIER / STATS */
-  .stats{background:var(--forest);padding:80px 0;}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
-  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
-  .stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(2.1rem,4vw,3rem);color:var(--gold);font-weight:500;}
-  .stat span{font-size:0.85rem;color:rgba(242,238,225,0.65);}
+  p{margin-bottom:14px;max-width:74ch;}
+  sup.cite a{font-size:11px;color:var(--link);}
+  sup.flag a{font-size:11px;color:var(--link-red);}
 
-  /* TIMELINE OF LEGENDARY FEATS */
-  .timeline{border-top:1px solid rgba(183,207,182,0.2);}
-  .feat{
-    display:grid;
-    grid-template-columns:110px 1fr;
-    gap:28px;
-    padding:32px 0;
-    border-bottom:1px solid rgba(183,207,182,0.2);
+  /* ============ TOC ============ */
+  .toc{background:var(--panel);border:1px solid var(--border-light);display:inline-block;min-width:240px;max-width:320px;padding:12px 18px;margin:6px 0 26px;}
+  .toc-head{display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:700;margin-bottom:8px;font-size:14px;}
+  .toc-head button{background:none;border:0;color:var(--link);font-size:12.5px;font-weight:400;}
+  .toc-head button:hover{text-decoration:underline;}
+  .toc ol{counter-reset:toc;padding-left:0;list-style:none;}
+  .toc.collapsed ol{display:none;}
+  .toc > ol > li{counter-increment:toc;font-size:13.5px;margin-bottom:4px;}
+  .toc > ol > li::before{content:counter(toc) " ";color:var(--ink-muted);}
+  .toc ol ol{padding-left:20px;margin-top:3px;counter-reset:subtoc;}
+  .toc ol ol li{counter-increment:subtoc;font-size:13px;margin-bottom:3px;}
+  .toc ol ol li::before{content:counter(toc) "." counter(subtoc) " ";color:var(--ink-muted);}
+
+  /* ============ SECTIONS ============ */
+  h2{font-family:"Linux Libertine","Source Serif 4",Georgia,serif;font-weight:400;font-size:1.5rem;border-bottom:1px solid var(--border-light);padding:28px 0 6px;margin-bottom:14px;scroll-margin-top:14px;}
+  #early-life{clear:both;}
+  h2:first-of-type{padding-top:6px;}
+  h3{font-family:"Linux Libertine","Source Serif 4",Georgia,serif;font-weight:700;font-size:1.15rem;margin:22px 0 8px;scroll-margin-top:14px;}
+
+  blockquote.quote{
+    background:var(--panel);border:1px solid var(--border-light);padding:12px 18px;margin:14px 0 18px;max-width:64ch;
   }
-  @media (max-width:600px){.feat{grid-template-columns:1fr;gap:8px;}}
-  .feat-year{font-family:'Fraunces',serif;font-style:italic;color:var(--sage);font-size:1.1rem;}
-  .feat h3{font-size:1.4rem;margin-bottom:8px;}
-  .feat p{color:rgba(242,238,225,0.7);max-width:560px;}
+  blockquote.quote p{font-family:"Linux Libertine","Source Serif 4",Georgia,serif;font-style:italic;font-size:15px;margin-bottom:6px;max-width:none;}
+  blockquote.quote cite{font-size:12px;color:var(--ink-muted);font-style:normal;}
 
-  /* TESTIMONIALS */
-  .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(183,207,182,0.2);}
-  @media (max-width:900px){.press-grid{grid-template-columns:1fr;}}
-  .press-card{background:var(--forest-deep);padding:44px 36px;}
-  .press-card p{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;line-height:1.4;margin-bottom:22px;}
-  .press-card cite{font-style:normal;font-size:0.85rem;color:rgba(242,238,225,0.55);}
+  table.wikitable{border-collapse:collapse;margin:10px 0 22px;font-size:13.5px;width:100%;max-width:640px;}
+  table.wikitable caption{caption-side:top;text-align:left;font-weight:700;margin-bottom:6px;}
+  table.wikitable th, table.wikitable td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  table.wikitable th{background:var(--border-light);font-weight:700;}
+  table.wikitable td.no{color:var(--ink-muted);font-style:italic;}
 
-  /* AWARDS WALL */
-  .awards{background:var(--forest);}
-  .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(242,238,225,0.15);}
-  @media (max-width:760px){.awards-grid{grid-template-columns:repeat(2,1fr);}}
-  .award{
-    background:var(--forest);
-    padding:34px 26px;
+  .flash{animation:flashHighlight 1.6s ease-out;}
+  @keyframes flashHighlight{
+    0%{background:#fff3c4;}
+    100%{background:transparent;}
   }
-  .award .medal{
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    color:var(--gold);
-    font-size:0.95rem;
-    margin-bottom:14px;
-  }
-  .award h3{font-size:1rem;margin-bottom:8px;}
-  .award p{font-size:0.82rem;color:rgba(242,238,225,0.55);}
 
-  /* GUESTBOOK / SIGN THE LEGEND */
-  .fanclub{background:var(--forest);text-align:center;}
-  .fanclub h2{font-size:clamp(2.1rem,5vw,3.4rem);max-width:640px;margin:0 auto 20px;}
-  .fanclub p{color:rgba(242,238,225,0.7);max-width:460px;margin:0 auto 40px;}
-  .fan-form{display:flex;justify-content:center;gap:0;max-width:440px;margin:0 auto;border-bottom:1px solid rgba(242,238,225,0.4);padding-bottom:14px;}
-  .fan-form input{flex:1;background:transparent;border:none;color:var(--cream);font-family:'Manrope',sans-serif;font-size:1rem;outline:none;}
-  .fan-form input::placeholder{color:rgba(242,238,225,0.45);}
-  .fan-form button{background:none;border:none;color:var(--gold);font-weight:600;cursor:pointer;font-size:0.95rem;}
-  .fan-note{margin-top:16px;font-size:0.8rem;color:rgba(242,238,225,0.45);min-height:1em;}
-  .giscus{max-width:760px;margin:0 auto;text-align:left;}
+  /* ============ ETYMOLOGY FIGURE ============ */
+  figure.carfig{border:1px solid var(--border-light);background:var(--panel);padding:8px;margin:14px 0 20px;max-width:340px;}
+  figure.carfig img{display:block;width:100%;height:auto;border:1px solid var(--border);}
+  figure.carfig figcaption{font-size:12px;color:var(--ink-muted);padding-top:6px;line-height:1.5;}
 
-  footer{
-    padding:56px 0 40px;
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
-    font-size:0.85rem;color:rgba(242,238,225,0.5);
+  /* ============ TALK PAGE ============ */
+  .talk-note{background:var(--panel);border:1px solid var(--border-light);padding:12px 16px;font-size:13px;color:var(--ink-muted);margin-bottom:18px;}
+  .talk-embed{border:1px solid var(--border-light);padding:16px;}
+
+  /* ============ REFERENCES ============ */
+  .refs{font-size:12.5px;column-count:1;}
+  .refs li{margin-bottom:6px;padding-left:2px;}
+  .refs .back{color:var(--link);margin-right:4px;}
+
+  /* ============ CATEGORIES / FOOTER ============ */
+  .categories{border-top:2px solid var(--border-light);margin-top:34px;padding-top:12px;font-size:12.5px;}
+  .categories b{margin-right:6px;}
+  .categories a{margin-right:4px;}
+  .categories a:not(:last-child)::after{content:" |";color:var(--border);margin-left:4px;}
+
+  footer.sitefooter{max-width:1120px;margin:0 auto;padding:18px 16px 60px;font-size:13px;color:var(--ink-muted);line-height:1.7;}
+  footer.sitefooter a{color:var(--ink-muted);text-decoration:underline;}
+
+  .toast{
+    position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(12px);
+    background:var(--ink);color:#fff;font-size:13px;padding:9px 16px;border-radius:3px;
+    opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);
   }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <div class="nav-mark">Deven Ballback</div>
-    <div class="nav-links">
-      <a href="#legend">Legend</a>
-      <a href="#press">They Said</a>
-      <a href="#awards">Awards</a>
-      <a href="#guestbook">Guestbook</a>
-    </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content wrap">
-    <div class="hero-kicker">A profile, compiled by the people who've actually met him</div>
-    <h1>Deven has spent his life becoming the person other people <em>talk about</em>.</h1>
-    <p class="hero-sub">Not through headlines or interviews — through the kind of stories that get retold at dinner tables for years afterward: the plane, the room he walked into, the deal nobody else could close. What follows is an attempt to put them all in one place.</p>
-    <div class="hero-cta">
-      <a href="#legend" class="btn btn-solid">Read the legend</a>
-      <a href="#guestbook" class="btn btn-line">Sign the guestbook</a>
-    </div>
-  </div>
-  <div class="scroll-cue"><div class="line"></div>Scroll</div>
-</section>
-
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Landed the plane when both engines failed</span>
-    <span>Talked a gunman into putting it down</span>
-    <span>Closed the deal everyone else walked away from</span>
-    <span>Ran into the building while everyone else ran out</span>
-    <span>Funded a scholarship for eleven years and told no one</span>
-    <span>Talked a lawsuit into a handshake, over the phone</span>
+<div class="utility-bar">
+  <div class="inner">
+    <span>Not logged in</span>
+    <a href="#" onclick="return false;">Talk</a>
+    <a href="#" onclick="return false;">Contributions</a>
+    <a href="#" onclick="return false;">Create account</a>
+    <a href="#" onclick="return false;">Log in</a>
   </div>
 </div>
 
-<div class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat"><b>1</b><span>Plane landed safely after both engines failed</span></div>
-    <div class="stat"><b>7</b><span>Languages, fluent, three learned in under a year</span></div>
-    <div class="stat"><b>$40M</b><span>Deal closed on a handshake, contract signed later</span></div>
-    <div class="stat"><b>0</b><span>Times he's raised his voice to win an argument</span></div>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="wordmark">
+      <div class="glyph">B</div>
+      <div class="name"><b>Ballbackpedia</b><span>The free-ish encyclopedia</span></div>
+    </div>
+    <div class="searchwrap">
+      <form class="searchform" id="searchForm" role="search" autocomplete="off">
+        <input type="text" id="searchInput" placeholder="Search Ballbackpedia" aria-label="Search this article">
+        <button type="submit">Go</button>
+      </form>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <nav class="masthead-links">
+      <a href="#" onclick="return false;">About Ballbackpedia</a>
+      <a href="#talk">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tabrow">
+  <div class="inner">
+    <a class="tab active" href="#top">Article</a>
+    <a class="tab" href="#talk">Talk</a>
+    <a class="tab" href="#top" onclick="return false;">Read</a>
+    <button class="tab" id="editTab">Edit</button>
+    <button class="tab disabled" id="historyTab">View history</button>
   </div>
 </div>
 
-<section id="legend">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>The Legend, chronologically</h2>
-      <p>A partial, heavily-corroborated timeline.</p>
+<div class="page-shell" id="top">
+  <aside class="sidebar">
+    <div class="side-box">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="#top">Main page</a></li>
+        <li><a href="#toc">Contents</a></li>
+        <li><a href="#incidents">Legendary feats</a></li>
+        <li><button class="linklike" id="randomBtn">Random legend</button></li>
+        <li><a href="#talk">Talk page</a></li>
+      </ul>
     </div>
-    <div class="timeline">
-      <div class="feat">
-        <div class="feat-year">Chapter I</div>
-        <div>
-          <h3>Landed the plane after both engines failed, on a river, with no warning</h3>
-          <p>Ninety seconds from windshield full of birds to a water landing every passenger walked away from. He filled out the incident report calmly and went home for dinner.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter II</div>
-        <div>
-          <h3>Walked into a hostage situation and walked everyone out an hour later</h3>
-          <p>No training, no authority to be there. Just stayed calm, kept talking, and somehow became the person both sides trusted.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter III</div>
-        <div>
-          <h3>Closed a forty-million-dollar deal that three other firms had already walked away from</h3>
-          <p>Read the room, found the actual sticking point nobody else had bothered to ask about, and had it signed inside a week.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter IV</div>
-        <div>
-          <h3>Ran back into a burning building for a neighbor's dog while the fire department was still pulling up</h3>
-          <p>Came out coughing, dog fine, refused to be called anything more than "lucky" about it.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter V</div>
-        <div>
-          <h3>Learned a language well enough to give a wedding toast in it, in under four months</h3>
-          <p>The groom's grandmother cried. She doesn't speak a word of English. Neither, technically, did Deven four months earlier.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter VI</div>
-        <div>
-          <h3>Is, to this day, still the person everyone calls first with good news</h3>
-          <p>Not because he's the closest. Because he's the one who'll actually sound excited — right after whatever he's in the middle of fixing.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter VII</div>
-        <div>
-          <h3>Talked a shipping conglomerate out of a lawsuit that would have sunk a hundred-person company, in one phone call</h3>
-          <p>No lawyers on the line. He found the actual disagreement — a shipping date, not a dollar figure — and had both sides laughing about it within the hour.</p>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-year">Chapter VIII</div>
-        <div>
-          <h3>Anonymously funded a scholarship for eleven years before anyone found out it was him</h3>
-          <p>The first recipient tracked him down at a wedding, decades later, just to say thank you. He changed the subject inside a minute and asked about her flight.</p>
-        </div>
-      </div>
+    <div class="side-box">
+      <h3>Tools</h3>
+      <ul>
+        <li><a href="#" onclick="return false;">What links here</a></li>
+        <li><a href="#" onclick="return false;">Related changes</a></li>
+        <li><a href="#" onclick="return false;">Special pages</a></li>
+        <li><button class="linklike" id="permalinkBtn">Permanent link</button></li>
+      </ul>
     </div>
-  </div>
-</section>
+  </aside>
 
+  <main class="content">
 
-<section id="press">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>What people actually say</h2>
-      <p>Collected exactly as people said them.</p>
+    <div class="ambox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#b58a2c" stroke-width="1.6"><path d="M12 3 L22 20 L2 20 Z" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="#b58a2c"/></svg>
+      <div>
+        <b>This article has multiple issues.</b>
+        <ul>
+          <li>This article reads like it was written by the subject's biggest fan. <span class="tag">(March 2026)</span></li>
+          <li>This article relies largely on a single, self-interested source. <span class="tag">(March 2026)</span></li>
+          <li>Statements in this article may be true, false, or Deven. <span class="tag">(March 2026)</span></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="press-grid">
-    <div class="press-card">
-      <p>I was in seat 14C. He never once raised his voice, and neither did we.</p>
-      <cite>A passenger, still grateful</cite>
-    </div>
-    <div class="press-card">
-      <p>He found the one clause everyone else missed. That clause was the whole deal.</p>
-      <cite>An investor, humbled</cite>
-    </div>
-    <div class="press-card">
-      <p>My grandmother still talks about that toast. She still doesn't know how he pulled it off.</p>
-      <cite>The groom</cite>
-    </div>
-  </div>
-</section>
 
-<section id="awards">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Honors &amp; distinctions</h2>
-      <p>A partial list. There are more that didn't fit.</p>
-    </div>
-    <div class="awards-grid">
-      <div class="award">
-        <div class="medal">Distinction I</div>
-        <h3>Zero Fatalities, One Great Story</h3>
-        <p>The kind of record you hope to never need.</p>
-      </div>
-      <div class="award">
-        <div class="medal">Distinction II</div>
-        <h3>Trusted By Both Sides Of The Room</h3>
-        <p>Rare, and not something you can fake.</p>
-      </div>
-      <div class="award">
-        <div class="medal">Distinction III</div>
-        <h3>Closer Of Lost Causes</h3>
-        <p>Three deals, three different firms, one common thread.</p>
-      </div>
-      <div class="award">
-        <div class="medal">Distinction IV</div>
-        <h3>Fluent Faster Than Seems Possible</h3>
-        <p>Ask him how. He'll just say "hours."</p>
-      </div>
-      <div class="award">
-        <div class="medal">Distinction V</div>
-        <h3>Quietly Funded, Loudly Denied</h3>
-        <p>Ask him about the scholarship. He'll change the subject. Every single time.</p>
-      </div>
-      <div class="award">
-        <div class="medal">Distinction VI</div>
-        <h3>Shows Up Uninvited, Universally Welcomed</h3>
-        <p>The rarest kind of guest there is.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <h1 class="article-title" id="articleTitle">Deven Ballback</h1>
+    <p class="short-desc">American man; subject of ongoing dispute regarding the veracity of his own legend</p>
 
-<section id="guestbook" class="fanclub">
-  <div class="wrap">
-    <h2>Sign the guestbook</h2>
-    <p>Add your name if you've been one of the people telling these stories. Sign in with GitHub to post.</p>
-    <div class="giscus"></div>
-    <script src="https://giscus.app/client.js"
-      data-repo="Blpcky/Deven.Autos"
-      data-repo-id="R_kgDORtRQfw"
-      data-category="General"
-      data-category-id="DIC_kwDORtRQf84DFHJ6"
-      data-mapping="specific"
-      data-term="Guestbook"
-      data-strict="0"
-      data-reactions-enabled="0"
-      data-emit-metadata="0"
-      data-input-position="top"
-      data-theme="dark_dimmed"
-      data-lang="en"
-      crossorigin="anonymous"
-      async>
-    </script>
-  </div>
-</section>
+    <div class="lead-wrap">
+      <aside class="infobox" aria-label="Infobox">
+        <div class="ib-title">Deven Ballback</div>
+        <div class="ib-photo">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="36" r="18"/><path d="M14 92c0-22 16-34 36-34s36 12 36 34"/></svg>
+          <span>No free-use image is available for this person.</span>
+        </div>
+        <dl>
+          <div class="row"><dt>Born</dt><dd>Presumably, at some point</dd></div>
+          <div class="row"><dt>Occupation</dt><dd>Disputed</dd></div>
+          <div class="row"><dt>Known for</dt><dd>Being the subject of this article</dd></div>
+          <div class="row"><dt>Notable claim</dt><dd>Landing a plane (see <a href="#incident-river">§ The river landing</a>)</dd></div>
+          <div class="row"><dt>Website</dt><dd><a href="https://deven.autos">deven.autos</a></dd></div>
+        </dl>
+      </aside>
 
-<footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:20px;">
-    <div class="nav-mark">Deven</div>
-    <div>A living record, added to whenever there's something new worth including.</div>
-  </div>
+      <p>
+        <strong>Deven Ballback</strong> (born <em>date unconfirmed</em>) is an American man widely described, primarily by himself, as a "legend."<sup class="cite"><a href="#ref1">[1]</a></sup><sup class="cite"><a href="#ref2">[2]</a></sup>
+        Over roughly a decade, a consistent cluster of anecdotes involving aviation, hostage negotiation, a large financial transaction, and a residential structure fire has circulated among his acquaintances, none of whom were present for more than one of the incidents.<sup class="cite"><a href="#ref3">[3]</a></sup>
+        <sup class="flag"><a href="#" onclick="return false;">[citation&nbsp;needed]</a></sup>
+      </p>
+      <p>
+        Ballback has neither confirmed nor denied most of the specific details, a pattern several contributors to this article have noted without further comment.<sup class="cite"><a href="#ref4">[4]</a></sup>
+        He maintains a personal website at <a href="https://deven.autos">deven.autos</a>, the automotive-adjacent domain of which is addressed in <a href="#etymology">§ Etymology</a> below.
+      </p>
+    </div>
+
+    <nav class="toc" id="toc" aria-label="Table of contents">
+      <div class="toc-head"><span>Contents</span><button id="tocToggle">hide</button></div>
+      <ol>
+        <li><a href="#early-life">Early life</a></li>
+        <li><a href="#incidents">Notable incidents</a>
+          <ol>
+            <li><a href="#incident-river">The river landing</a></li>
+            <li><a href="#incident-standoff">The standoff</a></li>
+            <li><a href="#incident-deal">The forty-million-dollar handshake</a></li>
+            <li><a href="#incident-dog">The dog</a></li>
+            <li><a href="#incident-toast">The toast</a></li>
+            <li><a href="#incident-call">The phone call</a></li>
+            <li><a href="#incident-scholarship">The scholarship</a></li>
+          </ol>
+        </li>
+        <li><a href="#personal-life">Personal life</a></li>
+        <li><a href="#etymology">Etymology of deven.autos</a></li>
+        <li><a href="#awards">Awards and honors</a></li>
+        <li><a href="#culture">In popular culture</a></li>
+        <li><a href="#reception">Reception</a></li>
+        <li><a href="#talk">Talk page</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="early-life">Early life</h2>
+    <p>
+      Little is publicly documented about Ballback's life prior to the incidents described in <a href="#incidents">§ Notable incidents</a>. He is believed to have been a child at some point.<sup class="cite"><a href="#ref5">[5]</a></sup>
+      Several people who grew up near him describe him as "normal," a characterization Ballback disputes.
+    </p>
+
+    <h2 id="incidents">Notable incidents</h2>
+    <p>The following incidents are reported largely as told by Ballback, corroborated in most cases by exactly one other person who is friends with Ballback.</p>
+
+    <h3 id="incident-river">The river landing</h3>
+    <p>
+      According to accounts attributed to Ballback, an aircraft on which he was a passenger experienced dual engine failure and was subsequently landed on a river with no reported fatalities.<sup class="cite"><a href="#ref6">[6]</a></sup>
+      No flight data, air-traffic-control recording, or third-party photograph of the incident has been located by this article's contributors. Ballback has described completing an incident report "calmly" before returning home for dinner, a detail repeated in every known telling of the story and confirmed by no one but Ballback. <sup class="flag"><a href="#" onclick="return false;">[citation&nbsp;needed]</a></sup>
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;I don't like to talk about it. I've talked about it eleven times this week.&rdquo;</p>
+      <cite>— Deven Ballback, as quoted by Deven Ballback</cite>
+    </blockquote>
+
+    <h3 id="incident-standoff">The standoff</h3>
+    <p>
+      Ballback has stated that he entered an active hostage situation with no training, no authorization, and no clearly explained reason for being present, and that the situation concluded within the hour with no injuries.<sup class="cite"><a href="#ref7">[7]</a></sup>
+      Law-enforcement records for the event have not been made available to this article's editors.
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;I just have a calming presence. It's a gift. Also a curse. Mostly a gift.&rdquo;</p>
+      <cite>— Deven Ballback</cite>
+    </blockquote>
+
+    <h3 id="incident-deal">The forty-million-dollar handshake</h3>
+    <p>
+      A business transaction reportedly worth $40 million is said to have been finalized by Ballback after three other firms declined to pursue it.<sup class="cite"><a href="#ref8">[8]</a></sup>
+      The identities of the firms, the counterparty, and the figure itself have not been independently verified. <sup class="flag"><a href="#" onclick="return false;">[dubious&nbsp;– discuss]</a></sup>
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;I read the room. Then I read it again, because the room had more to say.&rdquo;</p>
+      <cite>— Deven Ballback</cite>
+    </blockquote>
+
+    <h3 id="incident-dog">The dog</h3>
+    <p>
+      Ballback is reported to have re-entered a burning residential structure to retrieve a neighbor's dog before the fire department arrived on scene.<sup class="cite"><a href="#ref9">[9]</a></sup>
+      The dog's name, breed, and current whereabouts are not recorded.
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;Somebody had to. I just happened to be the somebody who was already running toward it.&rdquo;</p>
+      <cite>— Deven Ballback</cite>
+    </blockquote>
+
+    <h3 id="incident-toast">The toast</h3>
+    <p>
+      Ballback has claimed to have learned a language to a conversational level within four months for the purpose of delivering a wedding toast.<sup class="cite"><a href="#ref10">[10]</a></sup>
+      The language, the wedding, and the grandmother said to have cried are unnamed in every known telling.
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;Four months. Some people take longer to pick a font.&rdquo;</p>
+      <cite>— Deven Ballback</cite>
+    </blockquote>
+
+    <h3 id="incident-call">The phone call</h3>
+    <p>
+      A shipping company's legal dispute with another firm is said to have been resolved by Ballback in a single, unrecorded phone call, with no legal representation on either side.<sup class="cite"><a href="#ref11">[11]</a></sup>
+      No settlement documents referencing Ballback have been located.
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;Lawyers found the disagreement. I found the actual problem. They're rarely in the same room.&rdquo;</p>
+      <cite>— Deven Ballback</cite>
+    </blockquote>
+
+    <h3 id="incident-scholarship">The scholarship</h3>
+    <p>
+      Ballback is reported to have anonymously funded a scholarship for eleven years before his involvement became known.<sup class="cite"><a href="#ref12">[12]</a></sup>
+      The institution, the recipient, and the fund itself have not been named publicly, including by Ballback.
+    </p>
+    <blockquote class="quote">
+      <p>&ldquo;It stops being anonymous the second you bring it up. So I didn't. For eleven years. You're welcome. Or you're not. I genuinely don't need the credit.&rdquo;</p>
+      <cite>— Deven Ballback</cite>
+    </blockquote>
+
+    <h2 id="personal-life">Personal life</h2>
+    <p>
+      Ballback is described by acquaintances as calm, which several sources note is also how he describes himself.<sup class="cite"><a href="#ref13">[13]</a></sup>
+      He has not raised his voice in an argument in recorded memory — a claim that, like most in this article, originates with Ballback.
+    </p>
+
+    <h2 id="etymology">Etymology of deven.autos</h2>
+    <p>
+      The domain <a href="https://deven.autos">deven.autos</a> was registered by Ballback in a year this article cannot confirm. Its connection to automobiles has never been formally explained by Ballback, who has not, as far as this article's editors can determine, been professionally employed in the automotive industry.<sup class="cite"><a href="#ref14">[14]</a></sup>
+      It is widely assumed, though never confirmed, that he simply liked the way the extension looked next to his name.
+    </p>
+    <figure class="carfig">
+      <img src="images/6.jpg" alt="Studio photograph of a blue performance sedan" loading="lazy">
+      <figcaption><strong>Fig. 1.</strong> A vehicle of a type Ballback is believed to appreciate. Not confirmed to be his own, or one he has ever driven. Relevance to this article: unclear.</figcaption>
+    </figure>
+
+    <h2 id="awards">Awards and honors</h2>
+    <table class="wikitable">
+      <caption>Distinctions attributed to Ballback, with editorial verification status</caption>
+      <thead><tr><th>Distinction</th><th>Basis</th><th>Verified</th></tr></thead>
+      <tbody>
+        <tr><td>Zero Fatalities, One Great Story</td><td><a href="#incident-river">§ 2.1</a></td><td class="no">No</td></tr>
+        <tr><td>Trusted by Both Sides of the Room</td><td><a href="#incident-standoff">§ 2.2</a>, <a href="#incident-call">§ 2.6</a></td><td class="no">No</td></tr>
+        <tr><td>Closer of Lost Causes</td><td><a href="#incident-deal">§ 2.3</a></td><td class="no">Partially — a $40M figure appears in one unsourced account</td></tr>
+        <tr><td>Fluent Faster Than Seems Possible</td><td><a href="#incident-toast">§ 2.5</a></td><td class="no">No</td></tr>
+        <tr><td>Quietly Funded, Loudly Denied</td><td><a href="#incident-scholarship">§ 2.7</a></td><td class="no">No</td></tr>
+        <tr><td>Shows Up Uninvited, Universally Welcomed</td><td>General reputation</td><td class="no">No</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="culture">In popular culture</h2>
+    <p>
+      Ballback's story has occasionally been retold at gatherings he did not attend, with details that grow slightly with each telling. No adaptation, documentary, or licensed account currently exists, though several people have suggested one should.
+    </p>
+
+    <h2 id="reception">Reception</h2>
+    <blockquote class="quote">
+      <p>&ldquo;I was in seat 14C. He never once raised his voice, and neither did we.&rdquo;</p>
+      <cite>— A passenger, still grateful<sup class="cite"><a href="#ref15">[15]</a></sup></cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>&ldquo;He found the one clause everyone else missed. That clause was the whole deal.&rdquo;</p>
+      <cite>— An investor, humbled<sup class="cite"><a href="#ref16">[16]</a></sup></cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>&ldquo;My grandmother still talks about that toast. She still doesn't know how he pulled it off.&rdquo;</p>
+      <cite>— The groom<sup class="cite"><a href="#ref17">[17]</a></sup></cite>
+    </blockquote>
+
+    <h2 id="talk">Talk page</h2>
+    <p class="talk-note">
+      This is the talk page for discussing improvements to the Deven Ballback article. This is not a forum for general discussion of the article's subject. It is, however, apparently used for exactly that. Sign in with GitHub to add a new entry below.
+    </p>
+    <div class="talk-embed">
+      <div class="giscus"></div>
+      <script src="https://giscus.app/client.js"
+        data-repo="Blpcky/Deven.Autos"
+        data-repo-id="R_kgDORtRQfw"
+        data-category="General"
+        data-category-id="DIC_kwDORtRQf84DFHJ6"
+        data-mapping="specific"
+        data-term="Guestbook"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+
+    <h2>References</h2>
+    <ol class="refs">
+      <li id="ref1"><a class="back" href="#top">↑</a>Ballback, D. Personal correspondence. Unverified.</li>
+      <li id="ref2"><a class="back" href="#top">↑</a>Multiple acquaintances, names withheld. Interview conducted by no one in particular.</li>
+      <li id="ref3"><a class="back" href="#top">↑</a>"Incident report" — location and continued existence unconfirmed.</li>
+      <li id="ref4"><a class="back" href="#top">↑</a>Talk:Deven Ballback/Archive 1.</li>
+      <li id="ref5"><a class="back" href="#top">↑</a>Anonymous former neighbor, recollection.</li>
+      <li id="ref6"><a class="back" href="#top">↑</a>No matching NTSB record found.</li>
+      <li id="ref7"><a class="back" href="#top">↑</a>No police report located.</li>
+      <li id="ref8"><a class="back" href="#top">↑</a>No public filing located.</li>
+      <li id="ref9"><a class="back" href="#top">↑</a>No fire department incident report located.</li>
+      <li id="ref10"><a class="back" href="#top">↑</a>Language spoken unspecified.</li>
+      <li id="ref11"><a class="back" href="#top">↑</a>No court record located.</li>
+      <li id="ref12"><a class="back" href="#top">↑</a>Institution declined to comment, because it was not asked.</li>
+      <li id="ref13"><a class="back" href="#top">↑</a>As quoted in <a href="#reception">§ Reception</a>.</li>
+      <li id="ref14"><a class="back" href="#top">↑</a>Domain registration record, WHOIS lookup, 2020s.</li>
+      <li id="ref15"><a class="back" href="#top">↑</a>As quoted in <a href="#reception">§ Reception</a>.</li>
+      <li id="ref16"><a class="back" href="#top">↑</a>As quoted in <a href="#reception">§ Reception</a>.</li>
+      <li id="ref17"><a class="back" href="#top">↑</a>As quoted in <a href="#reception">§ Reception</a>.</li>
+    </ol>
+
+    <h2>External links</h2>
+    <ul>
+      <li><a href="https://deven.autos">deven.autos</a> — official site (this page)</li>
+      <li><a href="#talk">Sign the guestbook</a> — via the Talk page</li>
+    </ul>
+
+    <div class="categories">
+      <b>Categories:</b>
+      <a href="#" onclick="return false;">Living people</a>
+      <a href="#" onclick="return false;">American folk heroes (self-described)</a>
+      <a href="#" onclick="return false;">People whose article was written mostly by fans</a>
+      <a href="#" onclick="return false;">Articles lacking reliable sources</a>
+      <a href="#" onclick="return false;">All articles needing citation from March 2026</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="sitefooter">
+  <p>Ballbackpedia is not affiliated with the Wikimedia Foundation, Wikipedia, or any verifiable source of information.</p>
+  <p>Content on this page is presented as satire and should not be cited, quoted, or introduced as evidence anywhere, for any reason.</p>
+  <p>This page is a work of comedic fiction about a real person, published with his knowledge. Text may be reused for personal amusement; results not guaranteed.</p>
 </footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* Table of contents collapse */
+  var toc = document.getElementById('toc');
+  var tocToggle = document.getElementById('tocToggle');
+  tocToggle.addEventListener('click', function(){
+    var collapsed = toc.classList.toggle('collapsed');
+    tocToggle.textContent = collapsed ? 'show' : 'hide';
+  });
+
+  /* Permanent link */
+  document.getElementById('permalinkBtn').addEventListener('click', function(){
+    var url = window.location.href.split('#')[0] + '#top';
+    if(navigator.clipboard){ navigator.clipboard.writeText(url).catch(function(){}); }
+    toast('Permanent link copied.');
+  });
+
+  /* Edit tab joke */
+  document.getElementById('editTab').addEventListener('click', function(){
+    toast('This article is semi-protected due to persistent edits by its own subject.');
+  });
+  document.getElementById('historyTab').addEventListener('click', function(){
+    toast('Revision history unavailable: too long, mostly self-authored.');
+  });
+
+  /* Random legend */
+  var incidentIds = ['incident-river','incident-standoff','incident-deal','incident-dog','incident-toast','incident-call','incident-scholarship'];
+  document.getElementById('randomBtn').addEventListener('click', function(){
+    var id = incidentIds[Math.floor(Math.random() * incidentIds.length)];
+    var el = document.getElementById(id);
+    el.scrollIntoView({behavior:'smooth', block:'center'});
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+  });
+
+  /* Search: jump to matching heading */
+  var headings = Array.prototype.slice.call(document.querySelectorAll('h2[id], h3[id]')).map(function(h){
+    return {id:h.id, text:h.textContent.trim()};
+  });
+  var searchForm = document.getElementById('searchForm');
+  var searchInput = document.getElementById('searchInput');
+  var searchResults = document.getElementById('searchResults');
+
+  function renderResults(query){
+    var q = query.trim().toLowerCase();
+    if(!q){ searchResults.classList.remove('open'); searchResults.innerHTML=''; return; }
+    var matches = headings.filter(function(h){ return h.text.toLowerCase().indexOf(q) !== -1; });
+    if(matches.length === 0){
+      searchResults.innerHTML = '<div class="none">No results. Try "the truth," though we can\'t promise better luck.</div>';
+    } else {
+      searchResults.innerHTML = matches.map(function(h){
+        return '<a href="#'+h.id+'">'+h.text+'</a>';
+      }).join('');
+    }
+    searchResults.classList.add('open');
+  }
+
+  searchInput.addEventListener('input', function(){ renderResults(searchInput.value); });
+  searchInput.addEventListener('focus', function(){ if(searchInput.value) renderResults(searchInput.value); });
+  document.addEventListener('click', function(e){
+    if(!searchForm.contains(e.target)){ searchResults.classList.remove('open'); }
+  });
+  searchForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = searchInput.value.trim().toLowerCase();
+    var match = headings.find(function(h){ return h.text.toLowerCase().indexOf(q) !== -1; });
+    if(match){
+      document.getElementById(match.id).scrollIntoView({behavior:'smooth', block:'center'});
+      searchResults.classList.remove('open');
+    }
+  });
+  searchResults.addEventListener('click', function(e){
+    searchResults.classList.remove('open');
+  });
+})();
+</script>
 
 </body>
 </html>

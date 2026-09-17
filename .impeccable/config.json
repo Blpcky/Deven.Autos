@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-17T03:32:59.187Z",
+        "reason": "Faithful parody of Wikipedia's real interface: font-family intentionally matches Wikipedia's actual declared sans stack (Helvetica Neue/Arial/sans-serif), a source-is-itself-an-interface-language exception, not an unconsidered default."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-17T03:33:17.529Z",
+        "reason": "Tab-strip pattern (Article/Talk/Read/Edit tabs): the active tab's bottom border is intentionally flush with the content panel's top border, the standard browser/OS tab convention this Wikipedia parody reproduces — adding bottom inset would break the tab illusion, not fix a defect."
+      }
+    ]
+  }
+}
